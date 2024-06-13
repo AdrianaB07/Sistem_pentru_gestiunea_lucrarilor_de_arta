@@ -1,0 +1,128 @@
+﻿@model AdminDashboardDto
+
+<div class="container mt-4">
+    <h2 class="analytics-title text-center">Business Analytics</h2>
+    <div class="row">
+        <div id="orders_chart" style="width: 100%; height: 500px;"></div>
+        <div class="col-lg-6">
+            <div id="category_sales_chart" style="width: 100%; height: 500px;"></div> <!-- Div pentru graficul de vânzări -->
+        </div>
+        <div class="col-lg-6">
+            <div id="category_products_sold_chart" style="width: 100%; height: 500px;"></div> <!-- Div pentru graficul de produse vândute -->
+        </div>
+    </div>
+    <div id="sales_chart" style="width: 100%; height: 500px;"></div>
+</div>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+    google.charts.load('current', { packages: ['corechart', 'bar'] });
+    google.charts.setOnLoadCallback(drawSalesChart);
+    google.charts.setOnLoadCallback(drawOrdersChart);
+    google.charts.setOnLoadCallback(drawCategorySalesChart); // Callback pentru graficul de vânzări
+    google.charts.setOnLoadCallback(drawCategoryProductsSoldChart); // Callback pentru graficul de produse vândute
+
+    function drawSalesChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Month', 'Sales'],
+    @foreach (var item in Model.MonthlySales)
+    {
+        @:['@item.Month', @item.Sales],
+    }
+            ]);
+
+        var options = {
+            title: 'Monthly Sales',
+            hAxis: { title: 'Month' },
+            vAxis: { title: 'Sales' },
+            legend: 'none',
+            colors: ['#800020'], // Burgundy
+            backgroundColor: '#f0f0f0',
+            chartArea: { width: '80%', height: '70%' }
+        };
+
+        var chart = new google.visualization.ColumnChart(document.getElementById('sales_chart'));
+        chart.draw(data, options);
+    }
+
+    function drawOrdersChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Status', 'Orders'],
+            ['Pending', @Model.PendingOrders],
+            ['Processing', @Model.ProcessingOrders],
+            ['Shipped', @Model.ShippedOrders],
+            ['Delivered', @Model.DeliveredOrders],
+            ['Cancelled', @Model.CancelledOrders]
+        ]);
+
+        var options = {
+            title: 'Orders by Status',
+            pieHole: 0.4,
+            colors: ['#800020', '#B03060', '#D94875', '#FF6F91', '#FF8E9A'], // Burgundy shades
+            backgroundColor: '#f0f0f0',
+            chartArea: { width: '80%', height: '70%' }
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('orders_chart'));
+        chart.draw(data, options);
+    }
+
+    function drawCategorySalesChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Category', 'Sales'],
+    @foreach (var item in Model.SalesByCategory)
+    {
+        @:['@item.CategoryName', @item.Sales],
+    }
+            ]);
+
+        var options = {
+            title: 'Sales by Category',
+            hAxis: { title: 'Category' },
+            vAxis: { title: 'Sales' },
+            legend: 'none',
+            colors: ['#800020'], // Burgundy
+            backgroundColor: '#f0f0f0',
+            chartArea: { width: '80%', height: '70%' }
+        };
+
+        var chart = new google.visualization.ColumnChart(document.getElementById('category_sales_chart'));
+        chart.draw(data, options);
+    }
+
+    function drawCategoryProductsSoldChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Category', 'Products Sold'],
+    @foreach (var item in Model.SalesByCategory)
+    {
+        @:['@item.CategoryName', @item.ProductsSold],
+    }
+            ]);
+
+        var options = {
+            title: 'Products Sold by Category',
+            hAxis: { title: 'Category' },
+            vAxis: { title: 'Products Sold' },
+            legend: 'none',
+            colors: ['#FF0000'], // Red
+            backgroundColor: '#f0f0f0',
+            chartArea: { width: '80%', height: '70%' }
+        };
+
+        var chart = new google.visualization.ColumnChart(document.getElementById('category_products_sold_chart'));
+        chart.draw(data, options);
+    }
+</script>
+<style>
+    .analytics-title {
+        font-family: 'Helvetica Neue', sans-serif;
+        font-size: 2.5rem;
+        color: #444;
+        font-weight: 600;
+        letter-spacing: 1px;
+        margin-top: 40px; /* Increase this value to add more space */
+    }
+
+
+
+</style>

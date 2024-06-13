@@ -1,0 +1,145 @@
+﻿@model ArtGallery01.Models.Product
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+<link rel="stylesheet" href="~/css/containerAlb.css" />
+<h4>Product</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4 container-white">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" name="existingImagePath" value="@Model.Image" />
+
+            <div class="form-group">
+                <label asp-for="Image" class="control-label"></label>
+                <input type="text" class="form-control" value="@Model.Image" readonly />
+                <input type="file" name="uploadedImage" class="form-control" />
+                <span asp-validation-for="Image" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ProductName" class="control-label"></label>
+                <input asp-for="ProductName" class="form-control" />
+                <span asp-validation-for="ProductName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="margin-bottom: 10px;">
+                <label asp-for="Category" class="control-label"></label>
+                <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.CategoryId"></select>
+            </div>
+
+            <div class="form-group">
+                <label for="tagInput">Add Tag:</label>
+                <input type="text" id="tagInput" class="form-control" style="margin-bottom: 10px;" />
+                <button type="button" id="addTagBtn" class="btn btn-primary">Add Tag</button>
+            </div>
+            <ul id="tagList">
+                @if (Model.Tags != null)
+                {
+                    @foreach (var tag in Model.Tags)
+                    {
+                        <li>
+                            @tag.Content
+                            <button type="button" class="btn btn-danger btn-sm remove-tag-btn" data-tag="@tag.Content">x</button>
+                        </li>
+                    }
+                }
+            </ul>
+
+            @* Adăugați câmpuri ascunse pentru a păstra tag-urile la trimiterea formularului *@
+            @for (int i = 0; i < Model.Tags.Count; i++)
+            {
+                <input type="hidden" name="Tags" value="@Model.Tags[i].Content" />
+            }
+
+            <input type="submit" class="btn btn-success" value="Save" />
+        </form>
+    </div>
+    <div class="col-md-6 container-white">
+        <!-- Imaginea afișată -->
+        <img id="uploadedImagePreview" src="@Url.Content("~/images/" + Model.Image)" alt="Uploaded Image" style="max-width: 100%; max-height: 100%; display: @(Model.Image != null ? "block" : "none"); margin-left: auto;" />
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-success" asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    <script>
+        var tagList = @Html.Raw(Json.Serialize(Model.Tags?.Select(t => t.Content).ToList() ?? new List<string>()));
+
+        document.getElementById('addTagBtn').addEventListener('click', function () {
+            var tagInput = document.getElementById('tagInput').value;
+            if (tagInput.trim() !== "") {
+                tagList.push(tagInput);
+                updateTagList();
+                document.getElementById('tagInput').value = '';
+            }
+        });
+
+        function updateTagList() {
+            var tagListElem = document.getElementById('tagList');
+            tagListElem.innerHTML = '';
+            tagList.forEach((tag, index) => {
+                var li = document.createElement('li');
+                li.textContent = tag;
+                var removeBtn = document.createElement('button');
+                removeBtn.textContent = 'x';
+                removeBtn.className = 'btn btn-danger btn-sm remove-tag-btn';
+                removeBtn.addEventListener('click', function () {
+                    tagList.splice(index, 1);
+                    updateTagList();
+                });
+                li.appendChild(removeBtn);
+                tagListElem.appendChild(li);
+            });
+
+            // Add hidden inputs to send the tagList to the server
+            document.querySelectorAll('input[name="Tags"]').forEach(e => e.remove());
+            tagList.forEach(tag => {
+                var input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = 'Tags';
+                input.value = tag;
+                tagListElem.appendChild(input);
+            });
+        }
+
+        // Event delegation to handle dynamically added remove buttons
+        document.getElementById('tagList').addEventListener('click', function (e) {
+            if (e.target.classList.contains('remove-tag-btn')) {
+                var tag = e.target.getAttribute('data-tag');
+                tagList = tagList.filter(t => t !== tag);
+                updateTagList();
+            }
+        });
+
+        document.querySelector('input[type="file"]').addEventListener('change', function () {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                var imgPreview = document.getElementById('uploadedImagePreview');
+                imgPreview.style.display = 'block'; // Afișează imaginea
+                imgPreview.src = e.target.result;
+            }
+            reader.readAsDataURL(this.files[0]);
+        });
+
+        // Initialize tag list on page load
+        updateTagList();
+    </script>
+}

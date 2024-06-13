@@ -1,0 +1,59 @@
+﻿@model ArtGallery01.Models.Category
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h2 class="text-center">Name a New Category</h2>
+            <hr />
+            <form asp-action="Create" class="p-4 rounded shadow-sm" style="background-color: #f8f9fa;">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group mb-3">
+                    <label asp-for="CategoryName" class="form-label"></label>
+                    <input asp-for="CategoryName" class="form-control" />
+                    <span asp-validation-for="CategoryName" class="text-danger"></span>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <a asp-action="Index" class="btn btn-dark btn-burgundy">Back to List</a>
+                    <input type="submit" value="Done" class="btn btn-burgundy" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+<style>
+    .btn-burgundy {
+        background-color: #800020;
+        color: white;
+        border: none;
+        transition: background-color 0.3s ease;
+    }
+
+        .btn-burgundy:hover {
+            background-color: #660018;
+        }
+
+        .btn-burgundy:focus,
+        .btn-burgundy:active {
+            background-color: #4d0012;
+        }
+
+    .form-label {
+        color: #800020;
+    }
+
+    .form-control:focus {
+        border-color: #800020;
+        box-shadow: 0 0 0 0.2rem rgba(128, 0, 32, 0.25);
+    }
+</style>

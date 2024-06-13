@@ -1,0 +1,143 @@
+﻿@model ShoppingCart
+@{
+    ViewData["Title"] = "GetUserShoppingCart";
+}
+<link rel="stylesheet" href="~/css/containerAlb.css" />
+
+<div style="width:90%; margin:auto; margin-top: 4rem;" class="container-white">
+    @if (Model != null && Model.CartDetails != null && Model.CartDetails.Count > 0)
+    {
+        <h1 class="mb-4 text-burgundy">My Cart</h1>
+
+        <table class="table table-hover table-striped">
+            <thead class="bg-burgundy text-white">
+                <tr>
+                    <th>Product</th>
+                    <th>Image</th>
+                    <th>Category</th>
+                    <th>Quantity</th>
+                    <th>Unit Price</th>
+                    <th>Total Price</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.CartDetails)
+                {
+                    <tr>
+                        <td>@item.Product.ProductName</td>
+                        <td>
+                            @if (string.IsNullOrEmpty(item.Product.Image))
+                            {
+                                <img src="/images/NoImage.png" class="img-fluid rounded" style="width:80px; height:100px;" />
+                            }
+                            else
+                            {
+                                <img src="/images/@item.Product.Image" class="img-fluid rounded" style="width:80px; height:100px;" />
+                            }
+                        </td>
+                        <td>@item.Product.Category.CategoryName</td>
+                        <td>@item.Quantity</td>
+                        <td>@item.Product.Price €</td>
+                        <td>@(item.Product.Price * item.Quantity) €</td>
+                        <td>
+                            <a class="btn btn-danger" href="/Cart/RemoveItem?productId=@item.ProductId">
+                                <i class="bi bi-trash"></i> Remove
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div class="d-flex justify-content-between align-items-center my-3">
+            <h4 class="text-burgundy">Total: @(Model.CartDetails.Select(item => item.Product.Price * item.Quantity).Sum()) €</h4>
+            <a class="btn btn-burgundy btn-lg" href="/UserOrderDetail/Create">Next Step <i class="bi bi-arrow-right"></i></a>
+        </div>
+    }
+    else
+    {
+        <h5 class="text-center text-muted">Your cart is empty</h5>
+    }
+</div>
+
+<style>
+    .text-burgundy {
+        color: #800020;
+    }
+
+    .bg-burgundy {
+        background-color: #800020;
+    }
+
+    .table-hover tbody tr:hover {
+        background-color: #f5f5f5;
+    }
+
+    .btn-danger {
+        background-color: #d9534f;
+        color: white;
+        border: none;
+        transition: background-color 0.3s ease;
+    }
+
+        .btn-danger:hover {
+            background-color: #c9302c;
+        }
+
+    .btn-burgundy {
+        background-color: #800020;
+        color: white;
+        border: none;
+        transition: background-color 0.3s ease;
+    }
+
+        .btn-burgundy:hover {
+            background-color: #660018;
+        }
+
+        .btn-burgundy:focus,
+        .btn-burgundy:active {
+            background-color: #4d0012;
+        }
+
+    .container-white {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        margin-top: 4rem; /* Am mărit spațiul de deasupra container-ului */
+        margin-bottom: 2rem;
+    }
+
+    .img-fluid {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+
+    .rounded {
+        border-radius: 8px;
+    }
+
+    .btn-lg {
+        padding: 10px 20px;
+        font-size: 1.25rem;
+    }
+
+    .my-3 {
+        margin-top: 1rem !important;
+        margin-bottom: 1rem !important;
+    }
+
+    .mb-4 {
+        margin-bottom: 1.5rem !important;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .text-muted {
+        color: #6c757d;
+    }
+</style>

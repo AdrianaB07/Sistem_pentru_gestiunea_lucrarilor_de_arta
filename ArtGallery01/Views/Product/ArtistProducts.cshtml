@@ -1,0 +1,62 @@
+﻿@model IEnumerable<ArtGallery01.Models.Product>
+
+@{
+    ViewData["Title"] = "Artist Products";
+}
+
+<div class="container mt-4">
+    <h2>Products by @Model.FirstOrDefault()?.OwnerEmail</h2>
+    <hr />
+    <div class="row">
+        @foreach (var product in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <a href="@Url.Action("Details", "Product", new { id = product.Id })" class="card-link">
+                        @if (string.IsNullOrEmpty(product.Image))
+                        {
+                            <img src="/images/NoImage.png" class="card-img-top product-img" alt="No Image Available">
+                        }
+                        else
+                        {
+                            <img src="/images/@product.Image" class="card-img-top product-img" alt="@product.ProductName">
+                        }
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">@product.ProductName</h5>
+                        <p class="card-text"><b>Price: </b>@product.Price €</p>
+                        <p class="card-text"><b>Category: </b>@product.Category.CategoryName</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<style>
+    .card {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card-body {
+        flex: 1;
+    }
+
+    .product-img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    .card-link:hover .product-img {
+        transform: scale(1.1);
+    }
+
+    .card-link {
+        text-decoration: none;
+        color: inherit;
+    }
+</style>

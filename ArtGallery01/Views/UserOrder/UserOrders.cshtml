@@ -1,0 +1,188 @@
+﻿@model IEnumerable<ArtGallery01.Models.Order>
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Mvc.Rendering
+
+<link rel="stylesheet" href="~/css/containerAlb.css" />
+
+<div style="width:90%;margin:auto" class="container-white">
+
+
+    <form method="get" class="mb-4 d-flex justify-content-between align-items-center">
+        <div class="input-group me-2">
+            <input type="text" class="form-control" name="orderId" placeholder="Search by Order ID" style="width: 200px;" />
+            <button type="submit" class="btn btn-burgundy">Search</button>
+        </div>
+        <div class="input-group">
+            <select class="form-select" name="sortOrder" style="width: 200px;">
+                <option value="">Sort by Status</option>
+                <option value="Pending">Pending</option>
+                <option value="Processing">Processing</option>
+                <option value="Shipped">Shipped</option>
+                <option value="Delivered">Delivered</option>
+                <option value="Cancelled">Cancelled</option>
+            </select>
+            <button type="submit" class="btn btn-burgundy ms-2">Filter</button>
+            <a href="/UserOrder/UserOrders" class="btn btn-dark ms-2">Reset</a>
+        </div>
+    </form>
+
+    @if (Model != null && Model.Count() > 0)
+    {
+        @foreach (var order in Model)
+        {
+            <div class="card mb-4 shadow-sm">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <h5 class="card-title">Order ID: @order.Id</h5>
+                            <p class="card-text"><strong>Order Date:</strong> @order.CreateDate.ToString("dd-MM-yyyy")</p>
+                            <p class="card-text"><strong>Status:</strong> @order.OrderStatus?.StatusName</p>
+
+                            @if (order.OrderDetail != null && order.OrderDetail.Count() > 0)
+                            {
+                                var userDetail = order.OrderDetail.FirstOrDefault()?.UserOrderDetails;
+                                @if (userDetail != null)
+                                {
+                                    <div class="customer-details p-3 mb-3">
+                                        <p class="card-text"><strong>Full Name:</strong> @userDetail.FirstName @userDetail.LastName</p>
+                                        <p class="card-text"><strong>Address:</strong> @userDetail.Address</p>
+                                        <p class="card-text"><strong>Email:</strong> @userDetail.email</p>
+                                        <p class="card-text"><strong>Total Price: @order.OrderDetail.Sum(x => x.UnitPrice * x.Quantity) €</strong></p>
+                                    </div>
+                                }
+                            }
+                        </div>
+                        <div class="col-md-3 text-right">
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <h5 class="text-burgundy">Order Status</h5>
+                                <div class="btn-group-vertical" role="group" aria-label="Change Status">
+                                    <form asp-action="UpdateOrderStatus" method="post" style="display:inline;">
+                                        <input type="hidden" name="orderId" value="@order.Id" />
+                                        <button type="submit" name="statusId" value="1" class="btn btn-burgundy btn-sm mb-1">Pending</button>
+                                    </form>
+                                    <form asp-action="UpdateOrderStatus" method="post" style="display:inline;">
+                                        <input type="hidden" name="orderId" value="@order.Id" />
+                                        <button type="submit" name="statusId" value="2" class="btn btn-burgundy btn-sm mb-1">Processing</button>
+                                    </form>
+                                    <form asp-action="UpdateOrderStatus" method="post" style="display:inline;">
+                                        <input type="hidden" name="orderId" value="@order.Id" />
+                                        <button type="submit" name="statusId" value="4" class="btn btn-burgundy btn-sm mb-1">Shipped</button>
+                                    </form>
+                                    <form asp-action="UpdateOrderStatus" method="post" style="display:inline;">
+                                        <input type="hidden" name="orderId" value="@order.Id" />
+                                        <button type="submit" name="statusId" value="5" class="btn btn-burgundy btn-sm mb-1">Delivered</button>
+                                    </form>
+                                    <form asp-action="UpdateOrderStatus" method="post" style="display:inline;">
+                                        <input type="hidden" name="orderId" value="@order.Id" />
+                                        <button type="submit" name="statusId" value="6" class="btn btn-burgundy btn-sm mb-1">Cancelled</button>
+                                    </form>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-12">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Product</th>
+                                        <th>Image</th>
+                                        <th>Category</th>
+                                        <th>Owner Email</th>
+                                        <th>Unit Price</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in order.OrderDetail)
+                                    {
+                                        <tr>
+                                            <td>@item.Product.ProductName</td>
+                                            <td>
+                                                <img src="@(string.IsNullOrEmpty(item.Product.Image) ? "/images/NoImage.png" : "/images/" + item.Product.Image)" style="width:80px;height:100px" />
+                                            </td>
+                                            <td>@item.Product.Category.CategoryName</td>
+                                            <td>@item.Product.OwnerEmail</td>
+                                            <td>@item.UnitPrice €</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <h5>No orders</h5>
+    }
+</div>
+
+<style>
+    .card-title {
+        color: #800020;
+    }
+
+    .text-burgundy {
+        color: #800020;
+    }
+
+    .btn-burgundy {
+        background-color: #800020;
+        color: white;
+        border: none;
+        transition: background-color 0.3s ease;
+    }
+
+        .btn-burgundy:hover {
+            background-color: #660018;
+        }
+
+        .btn-burgundy:focus,
+        .btn-burgundy:active {
+            background-color: #4d0012;
+        }
+
+    .card {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        margin-bottom: 20px;
+    }
+
+    .card-body {
+        padding: 20px;
+    }
+
+    .img-fluid {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+
+    .table {
+        margin-top: 20px;
+    }
+
+        .table th, .table td {
+            vertical-align: middle;
+        }
+
+        .table th {
+            background-color: #800020;
+            color: #fff;
+        }
+
+        .table td {
+            background-color: #f9f9f9;
+        }
+
+    .customer-details {
+        border: 1px solid #ddd;
+        background-color: #f8f8f8;
+        border-radius: 8px;
+    }
+</style>

@@ -1,0 +1,112 @@
+﻿@page
+@model EmailModel
+@{
+    ViewData["Title"] = "Manage Email";
+    ViewData["ActivePage"] = ManageNavPages.Email;
+}
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="~/css/containerAlb.css" />
+</head>
+
+<style>
+    h3 {
+        color: #800020;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .container-white {
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-floating .form-control {
+        border: 1px solid #800020;
+    }
+
+        .form-floating .form-control:focus {
+            border-color: #800020;
+            box-shadow: 0 0 0 0.2rem rgba(128, 0, 32, 0.25);
+        }
+
+    .form-floating .form-label {
+        color: #800020;
+    }
+
+    .btn-custom {
+        background-color: #800020;
+        border-color: #800020;
+        color: white;
+        transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+
+        .btn-custom:hover {
+            background-color: #a52a2a;
+            border-color: #a52a2a;
+        }
+
+    .btn-link-custom {
+        color: #800020;
+        text-decoration: underline;
+    }
+
+        .btn-link-custom:hover {
+            color: #a52a2a;
+            text-decoration: underline;
+        }
+
+    .input-group-text-success {
+        background-color: white;
+        color: #28a745;
+        border: none;
+    }
+
+    .text-danger {
+        color: #dc3545 !important;
+    }
+</style>
+
+<h3>@ViewData["Title"]</h3>
+<partial name="_StatusMessage" for="StatusMessage" />
+<div class="row">
+    <div class="col-md-6">
+        <div class="container-white">
+            <form id="email-form" method="post">
+                <div asp-validation-summary="All" class="text-danger" role="alert"></div>
+                @if (Model.IsEmailConfirmed)
+                {
+                    <div class="form-floating mb-3 input-group">
+                        <input asp-for="Email" class="form-control" placeholder="Please enter your email." disabled />
+                        <div class="input-group-append">
+                            <span class="h-100 input-group-text input-group-text-success font-weight-bold">✓</span>
+                        </div>
+                        <label asp-for="Email" class="form-label"></label>
+                    </div>
+                }
+                else
+                {
+                    <div class="form-floating mb-3">
+                        <input asp-for="Email" class="form-control" placeholder="Please enter your email." disabled />
+                        <label asp-for="Email" class="form-label"></label>
+                        <button id="email-verification" type="submit" asp-page-handler="SendVerificationEmail" class="btn btn-link btn-link-custom">Send verification email</button>
+                    </div>
+                }
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.NewEmail" class="form-control" autocomplete="email" aria-required="true" placeholder="Please enter new email." />
+                    <label asp-for="Input.NewEmail" class="form-label"></label>
+                    <span asp-validation-for="Input.NewEmail" class="text-danger"></span>
+                </div>
+                <button id="change-email-button" type="submit" asp-page-handler="ChangeEmail" class="w-100 btn btn-lg btn-custom">Change email</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

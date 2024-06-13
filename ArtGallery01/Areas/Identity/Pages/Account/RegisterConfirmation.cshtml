@@ -1,0 +1,68 @@
+﻿@page
+@model RegisterConfirmationModel
+@{
+    ViewData["Title"] = "";
+}
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="~/css/containerAlb.css" />
+</head>
+
+<style>
+    body {
+        background-color: #5b0013;
+        color: white; /* White text for the entire body */
+    }
+
+    h1 {
+        color: white;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    p, a {
+        color: white; /* White text for paragraphs and links */
+    }
+
+    a {
+        text-decoration: underline; /* Underline for clickable links */
+    }
+
+        a:hover {
+            color: #ffcccc; /* Light pink for hover effect */
+        }
+
+    .container-white {
+        background-color: #800020; /* Burgundy background */
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-container {
+        margin-top: 50px; /* Add space between navbar and form */
+    }
+</style>
+
+<h1>@ViewData["Title"]</h1>
+<div class="row justify-content-center form-container">
+    <div class="col-md-6">
+        <div class="container-white">
+            @if (Model.DisplayConfirmAccountLink)
+            {
+                <p>
+                    This app does not currently have a real email sender registered, see <a href="https://aka.ms/aspaccountconf">these docs</a> for how to configure a real email sender.
+                    Normally this would be emailed: <a id="confirm-link" href="@Model.EmailConfirmationUrl">Click here to confirm your account</a>
+                </p>
+            }
+            else
+            {
+                <p>
+                    Please check your email to confirm your account.
+                </p>
+            }
+        </div>
+    </div>
+</div>

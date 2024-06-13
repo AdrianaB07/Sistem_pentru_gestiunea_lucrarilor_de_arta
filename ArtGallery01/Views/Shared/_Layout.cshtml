@@ -1,0 +1,198 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>EStore</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="~/css/PageLayout.css" />
+    <style>
+        .navbar-custom {
+            background-color: #f0f0f0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
+        }
+
+            .navbar-custom .navbar-brand {
+                font-size: 1.5rem;
+                display: flex;
+                align-items: center;
+            }
+
+            .navbar-custom .nav-link {
+                color: #555;
+                font-size: 1rem;
+                transition: background-color 0.3s, color 0.3s;
+                border-radius: 5px;
+                padding: 8px 12px;
+            }
+
+                .navbar-custom .nav-link:hover {
+                    color: #fff;
+                    background-color: #800020;
+                }
+
+            .navbar-custom .dropdown-menu {
+                min-width: 200px;
+                border-radius: 8px;
+                box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+            }
+
+            .navbar-custom .dropdown-item {
+                display: flex;
+                align-items: center;
+                transition: background-color 0.3s, color 0.3s;
+                border-radius: 5px;
+                padding: 8px 12px;
+            }
+
+                .navbar-custom .dropdown-item i {
+                    margin-right: 8px;
+                }
+
+                .navbar-custom .dropdown-item:hover {
+                    background-color: #800020;
+                    color: #fff;
+                }
+
+            .navbar-custom .btn-link {
+                padding: 0;
+            }
+
+        /* Stiluri pentru footer */
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+            position: relative;
+            width: 100%;
+            margin-top: auto;
+        }
+
+            .footer .footer-content {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 2rem;
+                text-align: left;
+            }
+
+                .footer .footer-content > div {
+                    flex: 1;
+                    min-width: 250px;
+                }
+
+                    .footer .footer-content > div:not(:last-child) {
+                        border-right: 1px solid white;
+                        padding-right: 2rem;
+                    }
+
+            .footer a {
+                color: #ffffff;
+                text-decoration: none;
+            }
+
+                .footer a:hover {
+                    text-decoration: underline;
+                }
+
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .content {
+            flex: 1;
+            margin-bottom: 2rem; /* Adaugă un spațiu mai mare la sfârșitul conținutului */
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/Product/Gallery">
+                    <i class="bi bi-palette logo-icon"></i>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarColor01">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/Home/Index">
+                                Store
+                                <span class="visually-hidden">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Product/Gallery">Gallery</a>
+                        </li>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Product/Featured">Featured Artworks</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Admin/Dashboard">Analytics</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Product/Index">Artworks</a>
+                            </li>                           
+                            <li class="nav-item">
+                                <a class="nav-link" href="/UserOrder/UserOrders">Orders</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Categories/Index">Categories</a>
+                            </li>
+                        }
+                        else @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Product/Index">Your Artworks</a>
+                            </li>
+                        }
+                    </ul>
+                    @await Html.PartialAsync("_LoginPartial")
+                </div>
+            </div>
+        </nav>
+        <div class="content">
+            <div class="container">
+                @RenderBody()
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    
+                    <div>
+                        <h5>About Us</h5>
+                        <p>
+                            ArtGallery is a platform dedicated to the love of art. Our online art gallery allows art enthusiasts to explore and purchase high-quality pieces from talented artists worldwide. Whether you are an artist looking to sell your work or a collector in search of unique artworks, ArtGallery provides a seamless and inspiring experience.
+                        </p>
+                    </div>
+                    <div>
+                        <h5>Contact Us</h5>
+                        <p>
+                            Email: contact@artgallery.com <br />
+                            Phone: +123 456 7890
+                        </p>
+                    </div>
+                    <div>
+                        <p>&copy; 2024 ArtGallery. All rights reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+@await RenderSectionAsync("Scripts", required: false)

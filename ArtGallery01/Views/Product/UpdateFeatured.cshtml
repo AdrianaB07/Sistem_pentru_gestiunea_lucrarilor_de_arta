@@ -1,0 +1,14 @@
+﻿@model ArtGallery01.Models.Product
+<h1>Update Featured Status</h1>
+
+<p>Product Name: @Model.ProductName</p>
+<p>Description: @Model.Description</p>
+
+<form asp-action="UpdateFeatured" method="post">
+    <div class="form-group">
+        <label asp-for="IsFeatured"></label>
+        <input asp-for="IsFeatured" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-action="Featured">Back to Featured Products</a>
+</form>

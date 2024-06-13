@@ -1,0 +1,50 @@
+﻿@model ArtGallery01.Models.Wishlist
+
+@{
+    ViewData["Title"] = "GetUserWishlist";
+}
+<link rel="stylesheet" href="~/css/containerAlb.css" />
+<div style="width:90%;margin:auto" class="container-white">
+    @if (Model != null && Model.WishlistDetails != null && Model.WishlistDetails.Count > 0)
+    {
+        <h5>My Wishlist</h5>
+
+        <table class="table table-striped">
+            <tr>
+                <th>Product</th>
+                <th>Image</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Action</th>
+            </tr>
+            @foreach (var item in Model.WishlistDetails)
+            {
+                <tr>
+                    <td>@item.Product.ProductName</td>
+                    <td>
+                        @if (string.IsNullOrEmpty(item.Product.Image))
+                        {
+                            <img src="/images/NoImage.png" style="width:80px;height:100px" />
+                        }
+                        else
+                        {
+                            <img src="/images/@item.Product.Image" style="width:80px;height:100px" />
+                        }
+                    </td>
+                    <td>@item.Product.Category.CategoryName</td>
+                    <td>@item.Product.Price €</td>
+                    <td>
+                        <form asp-action="RemoveItem" method="post">
+                            <input type="hidden" name="productId" value="@item.ProductId" />
+                            <button type="submit" class="btn btn-dark">Remove</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </table>
+    }
+    else
+    {
+        <h5>Wishlist is empty</h5>
+    }
+</div>

@@ -1,0 +1,381 @@
+﻿@model ArtGallery01.Models.Product
+
+@{
+    ViewData["Title"] = "Details";
+    var isUserAuthenticated = User.Identity.IsAuthenticated;
+}
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+</head>
+
+<style>
+    .custom-card-title {
+        font-size: 28px;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .custom-card-text {
+        font-size: 18px;
+        line-height: 1.6;
+        color: #666;
+    }
+
+    .comment strong {
+        color: #800020;
+        font-weight: bold;
+    }
+
+    .comment-content {
+        font-size: 16px;
+        color: #444;
+    }
+
+    .btn-custom {
+        background-color: #800020;
+        border-color: #800020;
+        color: white;
+        border-radius: 20px;
+    }
+
+        .btn-custom:hover {
+            background-color: #a52a2a;
+            border-color: #a52a2a;
+        }
+
+    .btn-link-danger {
+        color: #dc3545;
+    }
+
+        .btn-link-danger:hover {
+            color: #c82333;
+        }
+
+    #expandedImage {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 9999;
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 20px;
+    }
+
+        #expandedImage img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        display: none;
+    }
+
+    .comment-form {
+        margin-top: 20px;
+    }
+
+    .comment-section {
+        margin-top: 30px;
+    }
+
+    .product-details {
+        display: flex;
+        align-items: flex-start;
+    }
+
+        .product-details .details {
+            flex-grow: 1;
+            margin-top: 20px;
+        }
+
+    .image-container {
+        width: 100%;
+        max-width: 500px;
+        height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+        .image-container img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+
+    .tag-list {
+        display: inline;
+    }
+
+        .tag-list span {
+            margin-right: 10px;
+            color: #800020;
+            font-size: 16px;
+        }
+
+    .btn-see-more {
+        background: none;
+        border: none;
+        color: #800020;
+        cursor: pointer;
+        text-decoration: underline;
+        font-size: 14px;
+    }
+
+    .btn-spacing {
+        margin-right: 10px;
+    }
+
+    .delete-btn {
+        color: #dc3545;
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+    }
+
+        .delete-btn:hover {
+            text-decoration: underline;
+        }
+
+        .delete-btn i {
+            margin-right: 5px;
+        }
+</style>
+
+<div class="container mt-4">
+    <input type="hidden" id="isUserAuthenticated" value="@isUserAuthenticated" />
+
+    <div class="row product-details">
+        <div class="col-lg-6">
+            <h4>Artwork</h4>
+            <hr />
+            <div class="card border-0 shadow-sm">
+                <div class="image-container">
+                    @if (string.IsNullOrEmpty(Model.Image))
+                    {
+                        <img src="/images/NoImage.png" id="productImage" alt="No Image Available">
+                    }
+                    else
+                    {
+                        <img src="/images/@Model.Image" id="productImage" alt="@Model.ProductName">
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 details">
+            <div class="card-body">
+                <h5 class="custom-card-title">@Html.DisplayFor(model => model.ProductName)</h5>
+                <p class="custom-card-text">@Html.DisplayFor(model => model.Description)</p>
+                <p class="custom-card-text"><b>Price: </b>@Html.DisplayFor(model => model.Price)</p>
+                <p class="custom-card-text"><b>Category: </b>@Html.DisplayFor(model => model.Category.CategoryName)</p>
+                <p class="custom-card-text"><b>Artist: </b><a href="@Url.Action("ArtistProducts", "Product", new { email = Model.OwnerEmail })">@Model.OwnerEmail.Split('@')[0]</a></p>
+                <p class="custom-card-text">
+                    <b>Tags: </b>
+                    <span class="tag-list" id="tagList">
+                        @if (Model.Tags != null && Model.Tags.Count > 0)
+                        {
+                            @foreach (var tag in Model.Tags)
+                            {
+                                <span>@tag.Content</span>
+                            }
+                        }
+                        else
+                        {
+                            <span>No tags added</span>
+                        }
+                    </span>
+                    @if (Model.Tags != null && Model.Tags.Count() > 3)
+                    {
+                        <button id="seeMoreTagsBtn" class="btn-see-more">See more</button>
+                    }
+                </p>
+                <div class="d-flex justify-content-center mt-3">
+                    @if (!Model.IsSold)
+                    {
+                        <button class="btn btn-custom mr-2 btn-spacing" onclick="addToCart(@Model.Id)"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                        <button class="btn btn-custom ml-2" onclick="addToWishlist(@Model.Id)"><i class="fas fa-heart"></i> Add to Wishlist</button>
+
+                    }
+                </div>
+                @if (Model.IsSold)
+                {
+                    <div class="alert alert-warning mt-3" role="alert">
+                        This artwork has been sold.
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div id="notification-container" style="display: none;" class="alert alert-success"></div>
+    <div class="row mt-4">
+        <div class="col-lg-12 comment-section">
+            <h4>Comments</h4>
+            <hr />
+            <div class="comments">
+                @foreach (var comment in Model.Comments)
+                {
+                    <div class="comment mb-3 p-3 border rounded shadow-sm">
+                        <div class="comment-content">
+                            <strong>@comment.User.UserName.Split('@')[0]:</strong> <span>@comment.Content</span>
+                        </div>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <form asp-action="DeleteComment" asp-route-commentId="@comment.Id" asp-route-productId="@Model.Id" method="post" class="d-inline">
+                                @Html.AntiForgeryToken()
+                                <button type="submit" class="delete-btn">
+                                    <i class="fas fa-trash-alt"></i> Delete
+                                </button>
+                            </form>
+                        }
+                    </div>
+                }
+            </div>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <div class="comment-form">
+                    <form asp-controller="Product" asp-action="AddComment" method="post">
+                        <input type="hidden" name="id" value="@Model.Id" />
+                        <div class="form-group">
+                            <label for="content">Comment:</label>
+                            <textarea class="form-control" id="content" name="content" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-custom">Add Comment</button>
+                    </form>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="overlay" id="overlay"></div>
+
+<div id="expandedImage"></div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var productImage = document.getElementById('productImage');
+            var expandedImageContainer = document.getElementById('expandedImage');
+            var overlay = document.getElementById('overlay');
+
+            productImage.addEventListener('click', function () {
+                var imageSrc = this.getAttribute('src');
+
+                overlay.style.display = 'block';
+
+                var img = new Image();
+                img.onload = function () {
+                    expandedImageContainer.innerHTML = '';
+                    expandedImageContainer.appendChild(img);
+                    expandedImageContainer.style.display = 'block';
+                };
+                img.src = imageSrc;
+            });
+
+            overlay.addEventListener('click', function () {
+                expandedImageContainer.style.display = 'none';
+                overlay.style.display = 'none';
+            });
+
+            document.addEventListener('keydown', function (event) {
+                if (event.key === 'Escape') {
+                    expandedImageContainer.style.display = 'none';
+                    overlay.style.display = 'none';
+                }
+            });
+
+            var seeMoreTagsBtn = document.getElementById('seeMoreTagsBtn');
+            if (seeMoreTagsBtn) {
+                seeMoreTagsBtn.addEventListener('click', function () {
+                    var tagList = document.getElementById('tagList');
+                    var tags = tagList.getElementsByTagName('span');
+                    for (var i = 3; i < tags.length; i++) {
+                        tags[i].style.display = 'inline';
+                    }
+                    seeMoreTagsBtn.style.display = 'none';
+                });
+            }
+
+            displayTags();
+        });
+
+        function displayTags() {
+            var tagList = document.getElementById('tagList');
+            var tags = tagList.getElementsByTagName('span');
+            if (tags.length <= 3) {
+                var seeMoreTagsBtn = document.getElementById('seeMoreTagsBtn');
+                if (seeMoreTagsBtn) {
+                    seeMoreTagsBtn.style.display = 'none';
+                }
+            } else {
+                for (var i = 3; i < tags.length; i++) {
+                    tags[i].style.display = 'none';
+                }
+            }
+        }
+
+        async function addToCart(productId) {
+            if (!document.getElementById('isUserAuthenticated').value) {
+                window.location.href = "/Identity/Account/Login";
+                return;
+            }
+            try {
+                const response = await fetch(`/Cart/AddItem?productId=${productId}`);
+                const result = await response.json();
+                if (result.success) {
+                    displayNotification(result.message);
+                } else {
+                    displayNotification("Failed to add to cart.", "danger");
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                displayNotification("Error adding to cart.", "danger");
+            }
+        }
+
+        async function addToWishlist(productId) {
+            if (!document.getElementById('isUserAuthenticated').value) {
+                window.location.href = "/Identity/Account/Login";
+                return;
+            }
+            try {
+                const response = await fetch(`/Wishlist/AddItem?productId=${productId}`);
+                const result = await response.json();
+                if (result.success) {
+                    displayNotification(result.message);
+                } else {
+                    displayNotification("Failed to add to wishlist.", "danger");
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                displayNotification("Error adding to wishlist.", "danger");
+            }
+        }
+
+        function displayNotification(message, type = "success") {
+            const notificationContainer = document.getElementById("notification-container");
+            notificationContainer.textContent = message;
+            notificationContainer.className = `alert alert-${type}`;
+            notificationContainer.style.display = "block";
+            setTimeout(() => {
+                notificationContainer.style.display = "none";
+            }, 3000);
+        }
+    </script>
+}

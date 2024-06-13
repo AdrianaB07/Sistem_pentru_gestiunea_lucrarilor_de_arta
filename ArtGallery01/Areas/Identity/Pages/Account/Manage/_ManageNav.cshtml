@@ -1,0 +1,75 @@
+﻿@inject SignInManager<IdentityUser> SignInManager
+@{
+    var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
+}
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="~/css/containerAlb.css" />
+</head>
+
+<style>
+    .nav-pills {
+        background-color: #f8f9fa;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+        .nav-pills .nav-link {
+            color: #800020;
+            font-weight: bold;
+            margin-bottom: 10px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            border-radius: 5px;
+        }
+
+            .nav-pills .nav-link.active, .nav-pills .nav-link:hover, .nav-pills .nav-link:focus, .nav-pills .nav-link:active {
+                background-color: #800020 !important;
+                color: white !important;
+            }
+
+            .nav-pills .nav-link i {
+                margin-right: 8px;
+            }
+
+    .container-white {
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+</style>
+
+<div class="container mt-4">
+    <ul class="nav nav-pills flex-column container-white">
+        <li class="nav-item">
+            <a class="nav-link @ManageNavPages.IndexNavClass(ViewContext)" id="profile" asp-page="./Index">
+                <i class="fas fa-user"></i> Profile
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link @ManageNavPages.EmailNavClass(ViewContext)" id="email" asp-page="./Email">
+                <i class="fas fa-envelope"></i> Email
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link @ManageNavPages.ChangePasswordNavClass(ViewContext)" id="change-password" asp-page="./ChangePassword">
+                <i class="fas fa-key"></i> Password
+            </a>
+        </li>
+        @if (hasExternalLogins)
+        {
+            <li id="external-logins" class="nav-item">
+                <a id="external-login" class="nav-link @ManageNavPages.ExternalLoginsNavClass(ViewContext)" asp-page="./ExternalLogins">
+                    <i class="fas fa-sign-in-alt"></i> External logins
+                </a>
+            </li>
+        }
+        <li class="nav-item">
+            <a class="nav-link @ManageNavPages.PersonalDataNavClass(ViewContext)" id="personal-data" asp-page="./PersonalData">
+                <i class="fas fa-id-card"></i> Personal data
+            </a>
+        </li>
+    </ul>
+</div>

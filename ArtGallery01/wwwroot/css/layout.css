@@ -1,0 +1,19 @@
+﻿body {
+    background-image: url("https://images.squarespace-cdn.com/content/v1/588a6abbf7e0abd2e812b219/1485467572095-TGXYEC2OSZ2D921NMCXM/DSC_0835.jpg?format=1000w");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+.logo-img {
+    width: 60px; /* sau orice altă lățime dorită */
+    height: 60px; /* menține proporțiile imaginii */
+    /* Alte stiluri necesare */
+}
+footer {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+}
+
+.privacy-text {
+    color: white;
+}

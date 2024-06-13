@@ -1,0 +1,141 @@
+﻿@model IEnumerable<ArtGallery01.Models.Product>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<h1 class="page-title text-center mb-4">Change this month's Art Gallery</h1>
+
+<div class="input-group mb-3">
+    <input type="text" id="searchInput" class="form-control" placeholder="Search by name or tag" />
+    <div class="input-group-append">
+        <span class="input-group-text"><i class="bi bi-search"></i></span>
+    </div>
+</div>
+
+<form asp-action="UpdateFeatured" method="post">
+    <div class="row" id="productList">
+        @foreach (var product in Model)
+        {
+            <div class="col-md-4 mb-3 product-item" data-name="@product.ProductName" data-tags="@string.Join(",", product.Tags.Select(t => t.Content))">
+                <div class="card">
+                    <div class="ratio ratio-4x3">
+                        <!-- Menținerea raportului de aspect 4:3 -->
+                        <img src="@Url.Content("~/images/" + product.Image)" class="card-img-top" alt="@product.ProductName">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">@product.ProductName</h5>
+                        <p class="card-text">
+                            @if (product.Description != null)
+                            {
+                                @(product.Description.Length > 50 ? product.Description.Substring(0, 50) + "..." : product.Description)
+                            }
+                            else
+                            {
+                                <span>No description available</span>
+                            }
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <input type="checkbox" name="featuredIds" value="@product.Id" @(product.IsFeatured ? "checked" : "") />
+                        <label class="ml-2">@product.ProductName</label>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <input type="hidden" name="featuredIdsString" id="featuredIdsString" />
+    <button type="submit" class="btn btn-primary mt-3">Update Featured Products</button>
+</form>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#searchInput').on('input', function () {
+                var searchTerm = $(this).val().toLowerCase();
+                $('.product-item').each(function () {
+                    var name = $(this).data('name').toLowerCase();
+                    var tags = $(this).data('tags').toLowerCase();
+                    if (name.includes(searchTerm) || tags.includes(searchTerm)) {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+                    }
+                });
+            });
+
+            $('form').submit(function (event) {
+                event.preventDefault(); // Oprirea comportamentului implicit de submit al formularului
+                var selectedIds = [];
+                $('input[name="featuredIds"]:checked').each(function () {
+                    selectedIds.push($(this).val());
+                });
+                $('#featuredIdsString').val(selectedIds.join(','));
+                // Acum puteți trimite formularul folosind AJAX sau puteți continua cu comportamentul dorit
+                // Depinde de nevoile dvs. de implementare
+                $(this).unbind('submit').submit();
+            });
+        });
+    </script>
+}
+
+<style>
+    .page-title {
+        font-family: 'Helvetica Neue', sans-serif;
+        font-size: 2.5rem;
+        color: #444;
+        font-weight: 600;
+        letter-spacing: 1px;
+        margin-top: 40px; /* Increase this value to add more space */
+    }
+
+    #searchInput {
+        border-color: #800020;
+    }
+
+        #searchInput:focus {
+            border-color: #800020;
+            box-shadow: 0 0 0 0.2rem rgba(128, 0, 32, 0.25);
+        }
+
+    .input-group-text {
+        background-color: #800020;
+        color: white;
+    }
+
+    .card {
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adaugă o umbra subtilă */
+    }
+
+    .ratio {
+        position: relative;
+        width: 100%;
+    }
+
+        .ratio::before {
+            content: "";
+            display: block;
+            padding-top: calc(100% / (4 / 3)); /* Raportul de aspect 4:3 */
+        }
+
+        .ratio img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+    .card .card-body {
+        padding: 1rem;
+    }
+
+    .card .card-footer {
+        padding: 10px 20px;
+        background-color: #f8f9fa;
+        display: flex;
+        align-items: center;
+    }
+
+        .card .card-footer input[type="checkbox"] {
+            margin-right: 5px;
+        }
+</style>

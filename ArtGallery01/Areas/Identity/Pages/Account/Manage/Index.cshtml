@@ -1,0 +1,82 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Profile";
+    ViewData["ActivePage"] = ManageNavPages.Index;
+}
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="~/css/containerAlb.css" />
+</head>
+
+<style>
+    h3 {
+        color: #800020;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .container-white {
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-floating .form-control {
+        border: 1px solid #800020;
+    }
+
+        .form-floating .form-control:focus {
+            border-color: #800020;
+            box-shadow: 0 0 0 0.2rem rgba(128, 0, 32, 0.25);
+        }
+
+    .form-floating .form-label {
+        color: #800020;
+    }
+
+    .btn-custom {
+        background-color: #800020;
+        border-color: #800020;
+        color: white;
+        transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+
+        .btn-custom:hover {
+            background-color: #a52a2a;
+            border-color: #a52a2a;
+        }
+
+    .text-danger {
+        color: #dc3545 !important;
+    }
+</style>
+
+<h3>@ViewData["Title"]</h3>
+<partial name="_StatusMessage" for="StatusMessage" />
+<div class="row">
+    <div class="col-md-6">
+        <div class="container-white">
+            <form id="profile-form" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                <div class="form-floating mb-3">
+                    <input asp-for="Username" class="form-control" placeholder="Please choose your username." disabled />
+                    <label asp-for="Username" class="form-label"></label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.PhoneNumber" class="form-control" placeholder="Please enter your phone number." />
+                    <label asp-for="Input.PhoneNumber" class="form-label"></label>
+                    <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+                </div>
+                <button id="update-profile-button" type="submit" class="w-100 btn btn-lg btn-custom">Save</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

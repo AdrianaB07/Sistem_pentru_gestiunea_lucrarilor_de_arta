@@ -1,0 +1,85 @@
+﻿@model IEnumerable<ArtGallery01.Models.UserOrderDetail>
+
+<link rel="stylesheet" href="~/css/containerAlb.css" />
+
+<div style="width:90%;margin:auto" class="container-white">
+    <a href="/Admin/Dashboard" class="btn btn-primary my-2">Back</a>
+
+    <h4>All Orders</h4>
+    @if (Model != null && Model.Count() > 0)
+    {
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Total Amount</th>
+                    <th>Order Date</th>
+                    <th>Order Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var userOrder in Model)
+                {
+                    var order = userOrder.OrderDetails.FirstOrDefault()?.Order;
+                    <tr>
+                        <td>@userOrder.FirstName</td>
+                        <td>@userOrder.LastName</td>
+                        <td>@userOrder.email</td>
+                        <td>@userOrder.Address</td>
+                        <td>@userOrder.TotalAmount €</td>
+                        <td>@order?.CreateDate.ToString("dd-MM-yyyy")</td>
+                        <td>@order?.OrderStatus?.StatusName</td>
+                    </tr>
+                    @if (userOrder.OrderDetails != null && userOrder.OrderDetails.Count > 0)
+                    {
+                        <tr>
+                            <td colspan="7">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Product</th>
+                                            <th>Image</th>
+                                            <th>Category</th>
+                                            <th>Quantity</th>
+                                            <th>Unit Price</th>
+                                            <th>Total Price</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in userOrder.OrderDetails)
+                                        {
+                                            <tr>
+                                                <td>@item.Product?.ProductName</td>
+                                                <td>
+                                                    @if (string.IsNullOrEmpty(item.Product?.Image))
+                                                    {
+                                                        <img src="/images/NoImage.png" style="width:80px;height:100px" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <img src="/images/@item.Product.Image" style="width:80px;height:100px" />
+                                                    }
+                                                </td>
+                                                <td>@item.Product?.Category?.CategoryName</td>
+                                                <td>@item.Quantity</td>
+                                                <td>@item.UnitPrice €</td>
+                                                <td>@(item.UnitPrice * item.Quantity) €</td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <h5>No orders found</h5>
+    }
+</div>

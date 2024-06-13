@@ -1,0 +1,545 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\ArtGallery01.bundle.scp.css",
+      "PackagePath": "staticwebassets\\ArtGallery01.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\css\\PageLayout.css",
+      "PackagePath": "staticwebassets\\css\\PageLayout.css"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\css\\containerAlb.css",
+      "PackagePath": "staticwebassets\\css\\containerAlb.css"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\css\\index.css",
+      "PackagePath": "staticwebassets\\css\\index.css"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\css\\layout.css",
+      "PackagePath": "staticwebassets\\css\\layout.css"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\04adec4a-282c-44ae-98f9-d430933e60ad.jpeg",
+      "PackagePath": "staticwebassets\\images\\04adec4a-282c-44ae-98f9-d430933e60ad.jpeg"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\05ec2202-40a2-4424-8006-3f5c32cfe699.jpg",
+      "PackagePath": "staticwebassets\\images\\05ec2202-40a2-4424-8006-3f5c32cfe699.jpg"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\09c49d03-d3a9-4851-801d-708f8a9c91e0.jpg",
+      "PackagePath": "staticwebassets\\images\\09c49d03-d3a9-4851-801d-708f8a9c91e0.jpg"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\0bd0cdcc-79fd-49db-b00f-dec2c39510e7.jpg",
+      "PackagePath": "staticwebassets\\images\\0bd0cdcc-79fd-49db-b00f-dec2c39510e7.jpg"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\1530066d-3337-4893-8412-13748013d260.jpg",
+      "PackagePath": "staticwebassets\\images\\1530066d-3337-4893-8412-13748013d260.jpg"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\19599209-0c79-46ec-b123-da7c7f180c9c.PNG",
+      "PackagePath": "staticwebassets\\images\\19599209-0c79-46ec-b123-da7c7f180c9c.PNG"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\2f6670ed-4605-4544-8e82-59b294e35da0.jpg",
+      "PackagePath": "staticwebassets\\images\\2f6670ed-4605-4544-8e82-59b294e35da0.jpg"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\353d0ca4-29af-45c2-a42f-04f9f3bab1ee.jpg",
+      "PackagePath": "staticwebassets\\images\\353d0ca4-29af-45c2-a42f-04f9f3bab1ee.jpg"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\38f63430-ad40-4ea7-8dc1-bd4d3edf73c5.jpg",
+      "PackagePath": "staticwebassets\\images\\38f63430-ad40-4ea7-8dc1-bd4d3edf73c5.jpg"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\3ac3648f-db52-4991-8b24-c91c6a9bb61a.jpg",
+      "PackagePath": "staticwebassets\\images\\3ac3648f-db52-4991-8b24-c91c6a9bb61a.jpg"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\3b08c4b6-c80f-4316-bb1c-d7ba674b0fcf.jpg",
+      "PackagePath": "staticwebassets\\images\\3b08c4b6-c80f-4316-bb1c-d7ba674b0fcf.jpg"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\48d2849b-5ae9-4a8f-af8b-46a76709dac1.jpg",
+      "PackagePath": "staticwebassets\\images\\48d2849b-5ae9-4a8f-af8b-46a76709dac1.jpg"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\4d5a8433-25d1-4b8d-bf74-d1df840a9dca.jpg",
+      "PackagePath": "staticwebassets\\images\\4d5a8433-25d1-4b8d-bf74-d1df840a9dca.jpg"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\5add3511-d4e2-4c40-8ff3-f0aae5ef842b.PNG",
+      "PackagePath": "staticwebassets\\images\\5add3511-d4e2-4c40-8ff3-f0aae5ef842b.PNG"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\5fc8fab3-86fb-4d5c-8913-48e161647b2b.jpeg",
+      "PackagePath": "staticwebassets\\images\\5fc8fab3-86fb-4d5c-8913-48e161647b2b.jpeg"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\6045b1d2-6a8b-4c7c-baa1-e48cf7eab415.jpg",
+      "PackagePath": "staticwebassets\\images\\6045b1d2-6a8b-4c7c-baa1-e48cf7eab415.jpg"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\63242308-c849-4db3-bff9-b29f0c09ec25.jpeg",
+      "PackagePath": "staticwebassets\\images\\63242308-c849-4db3-bff9-b29f0c09ec25.jpeg"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\63f28b9d-38c5-47e1-a93c-a8ba661b9d82.jpg",
+      "PackagePath": "staticwebassets\\images\\63f28b9d-38c5-47e1-a93c-a8ba661b9d82.jpg"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\672ef115-8b6e-4c40-b975-0d64e0e9be04.jpg",
+      "PackagePath": "staticwebassets\\images\\672ef115-8b6e-4c40-b975-0d64e0e9be04.jpg"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\6a211f34-75a2-4aff-8839-3bf4b6f3baf9.png",
+      "PackagePath": "staticwebassets\\images\\6a211f34-75a2-4aff-8839-3bf4b6f3baf9.png"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\6d4822e0-be3d-4290-a1ae-b7182c5d500d.jpg",
+      "PackagePath": "staticwebassets\\images\\6d4822e0-be3d-4290-a1ae-b7182c5d500d.jpg"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\77296036-c02c-4bb4-9436-f0821b583a41.jpg",
+      "PackagePath": "staticwebassets\\images\\77296036-c02c-4bb4-9436-f0821b583a41.jpg"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\8bc8c6e5-09d3-4f2f-805d-81beb74a6191.jpg",
+      "PackagePath": "staticwebassets\\images\\8bc8c6e5-09d3-4f2f-805d-81beb74a6191.jpg"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\8e936b47-dac9-4aea-9767-65afc1119496.jpg",
+      "PackagePath": "staticwebassets\\images\\8e936b47-dac9-4aea-9767-65afc1119496.jpg"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\8ff59eec-cf21-4d36-8c0d-dfd30e2118fb.jpeg",
+      "PackagePath": "staticwebassets\\images\\8ff59eec-cf21-4d36-8c0d-dfd30e2118fb.jpeg"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\953d53bb-dd29-4ef8-b201-5dacc9d2dfbb.jpg",
+      "PackagePath": "staticwebassets\\images\\953d53bb-dd29-4ef8-b201-5dacc9d2dfbb.jpg"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\9fe8121d-219d-45c6-972e-ccb3cb291cac.jpg",
+      "PackagePath": "staticwebassets\\images\\9fe8121d-219d-45c6-972e-ccb3cb291cac.jpg"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\Abstract.PNG",
+      "PackagePath": "staticwebassets\\images\\Abstract.PNG"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\Abstract.jpg",
+      "PackagePath": "staticwebassets\\images\\Abstract.jpg"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\ArtLogo.png",
+      "PackagePath": "staticwebassets\\images\\ArtLogo.png"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\Blue.jpg",
+      "PackagePath": "staticwebassets\\images\\Blue.jpg"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\GraphicArt1.jpg",
+      "PackagePath": "staticwebassets\\images\\GraphicArt1.jpg"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\GraphicArt2.jpg",
+      "PackagePath": "staticwebassets\\images\\GraphicArt2.jpg"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\NoImage.png",
+      "PackagePath": "staticwebassets\\images\\NoImage.png"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\PaintBrushes.jpg",
+      "PackagePath": "staticwebassets\\images\\PaintBrushes.jpg"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\PopArt1.jpg",
+      "PackagePath": "staticwebassets\\images\\PopArt1.jpg"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\PopArt2.jpg",
+      "PackagePath": "staticwebassets\\images\\PopArt2.jpg"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\Realism.PNG",
+      "PackagePath": "staticwebassets\\images\\Realism.PNG"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\Realism.jpg",
+      "PackagePath": "staticwebassets\\images\\Realism.jpg"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\Red.jpg",
+      "PackagePath": "staticwebassets\\images\\Red.jpg"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\StillLife.jpg",
+      "PackagePath": "staticwebassets\\images\\StillLife.jpg"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\StillLife1.jpg",
+      "PackagePath": "staticwebassets\\images\\StillLife1.jpg"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\Yellow.jpg",
+      "PackagePath": "staticwebassets\\images\\Yellow.jpg"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\a0231c7c-9832-49b3-aa2b-ec055e11aba0.jpg",
+      "PackagePath": "staticwebassets\\images\\a0231c7c-9832-49b3-aa2b-ec055e11aba0.jpg"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\a9e25e3b-b762-454f-9b8e-a5687562afe0.JPG",
+      "PackagePath": "staticwebassets\\images\\a9e25e3b-b762-454f-9b8e-a5687562afe0.JPG"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\ab74b656-7ad2-44f2-ba26-4ee19bb0c073.jpeg",
+      "PackagePath": "staticwebassets\\images\\ab74b656-7ad2-44f2-ba26-4ee19bb0c073.jpeg"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\ac2561af-60f3-4623-b36a-52d9536c64dd.jpg",
+      "PackagePath": "staticwebassets\\images\\ac2561af-60f3-4623-b36a-52d9536c64dd.jpg"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\addbcf47-38d1-4232-83a4-cf80f864617e.jpg",
+      "PackagePath": "staticwebassets\\images\\addbcf47-38d1-4232-83a4-cf80f864617e.jpg"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\b79d7bc9-8790-4542-a0c4-80846c6276af.jpeg",
+      "PackagePath": "staticwebassets\\images\\b79d7bc9-8790-4542-a0c4-80846c6276af.jpeg"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\ba61f55e-9904-441b-a7a2-0627298d7612.jpg",
+      "PackagePath": "staticwebassets\\images\\ba61f55e-9904-441b-a7a2-0627298d7612.jpg"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\bc69ad91-84e0-4b43-8d14-c1a9c7323f1e.jpeg",
+      "PackagePath": "staticwebassets\\images\\bc69ad91-84e0-4b43-8d14-c1a9c7323f1e.jpeg"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\bc69eb42-1854-4d5a-aab7-c9dfab95e17a.jpg",
+      "PackagePath": "staticwebassets\\images\\bc69eb42-1854-4d5a-aab7-c9dfab95e17a.jpg"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\canvas.jpg",
+      "PackagePath": "staticwebassets\\images\\canvas.jpg"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\ce27435c-bed1-433c-93e9-9d9ea9bd4f24.jpeg",
+      "PackagePath": "staticwebassets\\images\\ce27435c-bed1-433c-93e9-9d9ea9bd4f24.jpeg"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\d6d4dfae-b2a3-4afc-9061-5974674a141a.jpg",
+      "PackagePath": "staticwebassets\\images\\d6d4dfae-b2a3-4afc-9061-5974674a141a.jpg"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\d858b372-85cc-4b8c-8da0-49ba0a375e79.jpg",
+      "PackagePath": "staticwebassets\\images\\d858b372-85cc-4b8c-8da0-49ba0a375e79.jpg"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\e8bacf19-3ba9-4002-9bbc-c8a8c89a0fc5.jpg",
+      "PackagePath": "staticwebassets\\images\\e8bacf19-3ba9-4002-9bbc-c8a8c89a0fc5.jpg"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\e9c71990-f7f4-4522-bcc7-133f3705e054.jpg",
+      "PackagePath": "staticwebassets\\images\\e9c71990-f7f4-4522-bcc7-133f3705e054.jpg"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\efcc5223-7edb-489f-ae8f-990e2de9b81c.jpeg",
+      "PackagePath": "staticwebassets\\images\\efcc5223-7edb-489f-ae8f-990e2de9b81c.jpeg"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\f1c64378-31bb-43da-a87b-f2c8d20a06e5.jpg",
+      "PackagePath": "staticwebassets\\images\\f1c64378-31bb-43da-a87b-f2c8d20a06e5.jpg"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\f71d1cb6-8975-40ff-adb6-7f58386bfc5f.jpg",
+      "PackagePath": "staticwebassets\\images\\f71d1cb6-8975-40ff-adb6-7f58386bfc5f.jpg"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\f85bfce4-0624-4604-b5e5-dc10efbd973f.jpg",
+      "PackagePath": "staticwebassets\\images\\f85bfce4-0624-4604-b5e5-dc10efbd973f.jpg"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\fef47dde-278d-4af8-bdb8-0b0ed0fe3d40.jpg",
+      "PackagePath": "staticwebassets\\images\\fef47dde-278d-4af8-bdb8-0b0ed0fe3d40.jpg"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\images\\ff8f14ad-605a-4321-a016-d12f9152356c.jpg",
+      "PackagePath": "staticwebassets\\images\\ff8f14ad-605a-4321-a016-d12f9152356c.jpg"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\js\\edit.js",
+      "PackagePath": "staticwebassets\\js\\edit.js"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "C:\\Coding\\ArtGallery01.2\\ArtGallery01\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.ArtGallery01.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.ArtGallery01.props",
+      "PackagePath": "build\\ArtGallery01.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.ArtGallery01.props",
+      "PackagePath": "buildMultiTargeting\\ArtGallery01.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.ArtGallery01.props",
+      "PackagePath": "buildTransitive\\ArtGallery01.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

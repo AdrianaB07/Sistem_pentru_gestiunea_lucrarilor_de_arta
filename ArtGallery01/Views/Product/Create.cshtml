@@ -1,0 +1,177 @@
+﻿@model ArtGallery01.Models.Product
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1 class="text-center">Create</h1>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+<style>
+    .container-white {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        margin-bottom: 20px;
+    }
+
+    .btn-custom {
+        background-color: #800020;
+        border-color: #800020;
+        color: white;
+        border-radius: 20px;
+    }
+
+        .btn-custom:hover {
+            background-color: #a52a2a;
+            border-color: #a52a2a;
+        }
+
+    #uploadedImagePreview {
+        max-width: 100%;
+        max-height: 300px;
+        object-fit: contain;
+        display: none;
+        margin: 0 auto;
+    }
+</style>
+
+<h4 class="text-center">Product</h4>
+<hr />
+<div class="row justify-content-center">
+    <div class="col-md-6 container-white">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Image" class="control-label"></label>
+                <input type="file" name="uploadedImage" class="form-control-file" />
+                <span asp-validation-for="Image" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductName" class="control-label"></label>
+                <input asp-for="ProductName" class="form-control" />
+                <span asp-validation-for="ProductName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <textarea asp-for="Description" class="form-control"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Category" class="control-label"></label>
+                <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.CategoryId"></select>
+            </div>
+            <div class="form-group">
+                <label for="tagInput">Add Tag:</label>
+                <input type="text" id="tagInput" class="form-control" />
+                <button type="button" id="addTagBtn" class="btn btn-custom mt-2">Add Tag</button>
+            </div>
+            <ul id="tagList" class="list-unstyled"></ul>
+            <button type="button" id="generateTagsBtn" class="btn btn-secondary btn-custom">Generate Automated Tags</button>
+            <input type="submit" class="btn btn-success btn-custom mt-2" value="Create" />
+        </form>
+    </div>
+    <div class="col-md-6 container-white text-center">
+        <img id="uploadedImagePreview" src="#" alt="Uploaded Image" />
+    </div>
+</div>
+
+<div class="text-center">
+    <a class="btn btn-custom" asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    <script>
+        var tagList = [];
+
+        document.getElementById('addTagBtn').addEventListener('click', function () {
+            var tagInput = document.getElementById('tagInput').value;
+            if (tagInput.trim() !== "") {
+                tagList.push(tagInput);
+                updateTagList();
+                document.getElementById('tagInput').value = '';
+            }
+        });
+
+        document.getElementById('generateTagsBtn').addEventListener('click', function () {
+            var fileInput = document.querySelector('input[type="file"]');
+            var file = fileInput.files[0];
+            if (!file) {
+                alert("Please upload an image first.");
+                return;
+            }
+
+            var formData = new FormData();
+            formData.append('image', file);
+
+            fetch('/api/tags/generate', {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data && data.tags && data.tags.length > 0) {
+                        data.tags.forEach(tag => {
+                            if (!tagList.includes(tag)) {
+                                tagList.push(tag);
+                            }
+                        });
+                        updateTagList();
+                    } else {
+                        alert(data.message || "No tags found");
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        });
+
+        function updateTagList() {
+            var tagListElem = document.getElementById('tagList');
+            tagListElem.innerHTML = '';
+            tagList.forEach((tag, index) => {
+                var li = document.createElement('li');
+                li.textContent = tag;
+                li.className = "badge badge-pill badge-info mr-1";
+                var removeBtn = document.createElement('button');
+                removeBtn.textContent = 'x';
+                removeBtn.className = "btn btn-sm btn-danger ml-1";
+                removeBtn.style.borderRadius = "50%";
+                removeBtn.addEventListener('click', function () {
+                    tagList.splice(index, 1);
+                    updateTagList();
+                });
+                li.appendChild(removeBtn);
+                tagListElem.appendChild(li);
+            });
+
+            // Add hidden inputs to send the tagList to the server
+            document.querySelectorAll('input[name="Tags"]').forEach(e => e.remove());
+            tagList.forEach(tag => {
+                var input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = 'Tags';
+                input.value = tag;
+                tagListElem.appendChild(input);
+            });
+        }
+
+        document.querySelector('input[type="file"]').addEventListener('change', function () {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                var imgPreview = document.getElementById('uploadedImagePreview');
+                imgPreview.style.display = 'block'; // Afișează imaginea
+                imgPreview.src = e.target.result;
+            }
+            reader.readAsDataURL(this.files[0]);
+        });
+    </script>
+}
