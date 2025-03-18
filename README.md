@@ -22,4 +22,5 @@ How It Works ⚙️
 3️⃣ Buyers browse and purchase artworks via Stripe.
 4️⃣ Orders are managed in the admin dashboard.
 
+![image](https://github.com/user-attachments/assets/c517322e-f731-4909-87af-94f12d37392e)
 
